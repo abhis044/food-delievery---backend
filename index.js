@@ -10,7 +10,7 @@ app.use(bodyparser.json({limit:"50mb"}));
 app.use(bodyparser.urlencoded({limit:"50mb",parameterLimit:1000,extended:true}));
 
 dotenv.config({path:"./.env"})
-const port= 5000;
+const port= process.env.PORT || 5001;
 
 mongoose
 .connect(process.env.MONGO_DB_URL,{useNewUrlParser:true, useUnifiedTopology:true})
