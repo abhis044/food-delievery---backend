@@ -17,9 +17,9 @@ mongoose
 .then(()=>console.log("db connected"))
 .catch((err)=>console.log(err))
 
-app.use('https://food-delivery-u3hj.onrender.com/api/users',require("./Routes/userRouter"));
-app.use('https://food-delivery-u3hj.onrender.com/api',require("./Routes/Itemrouter"));
-// app.use('https://food-delivery-u3hj.onrender.com/api',require("./Routes/Orderrouter"));
+app.use('/api/users',require("./Routes/userRouter"));
+app.use('/api',require("./Routes/Itemrouter"));
+// app.use('/api',require("./Routes/Orderrouter"));
 app.listen(port,()=>{
     console.log(`server started at the ${port}`) 
 })
