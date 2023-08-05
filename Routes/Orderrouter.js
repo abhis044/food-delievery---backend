@@ -38,7 +38,7 @@ router.post('/orderData', async (req, res) => {
 });
 router.get("/getorder",async(req,res)=>{
     let email=req.body.email;
-    let myorders= await Order.find({email:email});
-    res.status(200).json({myorders:myorders});;
+    let orders= await Order.findOne({email:email});
+    res.status(200).json({orders:orders});;
 })
 module.exports = router;
