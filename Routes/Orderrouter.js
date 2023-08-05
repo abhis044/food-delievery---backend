@@ -35,5 +35,10 @@ router.post('/orderData', async (req, res) => {
             res.send("Server Error", error.message)
         }
     }
+});
+router.get("/getorder",async(req,res)=>{
+    let email=req.body.email;
+    let myorders= await Order.find({email:email});
+    res.status(200).json({myorders:myorders});;
 })
 module.exports = router;
