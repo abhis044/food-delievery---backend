@@ -19,7 +19,8 @@ mongoose
 
 app.use('/api/users',require("./Routes/userRouter"));
 app.use('/api',require("./Routes/Itemrouter"));
-// app.use('/api',require("./Routes/Orderrouter"));
+app.use('/api/myorder',require("./Routes/Myorder"));
+app.use('/api',require("./Routes/Orderrouter"))
 app.listen(port,()=>{
     console.log(`server started at the ${port}`) 
 })
