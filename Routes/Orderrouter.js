@@ -3,7 +3,7 @@ const router = express.Router();
 const Order=require("../models/Order");
 router.post('/orderData', async (req, res) => {
     let data = req.body.order_data;
-    await data.splice(0,0,{Order_date:req.body.order_date})
+    await data.splice(0,0,{Order_date:req.body.order_date},{Order_amount:req.body.order_amount});
     let email=req.body.email
     //if email not exisitng in db then create: else: InsertMany()
     let eId = await Order.findOne({ email: email })    
@@ -36,9 +36,10 @@ router.post('/orderData', async (req, res) => {
         }
     }
 });
-router.get("/getorder",async(req,res)=>{
+router.post("/getorder",async(req,res)=>{
     let email=req.body.email;
+    console.log(email);
     let orders= await Order.findOne({email:email});
-    res.status(200).json({orders:orders});;
+    res.status(200).json({orders:orders},);;
 })
 module.exports = router;
